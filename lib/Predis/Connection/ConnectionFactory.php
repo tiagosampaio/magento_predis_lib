@@ -30,7 +30,7 @@ class Predis_Connection_ConnectionFactory implements Predis_Connection_Connectio
      *
      * @param ServerProfileInterface $profile Server profile used to initialize new connections.
      */
-    public function __construct(ServerProfileInterface $profile = null)
+    public function __construct(Predis_Profile_ServerProfileInterface $profile = null)
     {
         $this->schemes = $this->getDefaultSchemes();
         $this->profile = $profile;
@@ -128,10 +128,10 @@ class Predis_Connection_ConnectionFactory implements Predis_Connection_Connectio
     /**
      * {@inheritdoc}
      */
-    public function createAggregated(AggregatedConnectionInterface $connection, Array $parameters)
+    public function createAggregated(Predis_Connection_AggregatedConnectionInterface $connection, Array $parameters)
     {
         foreach ($parameters as $node) {
-            $connection->add($node instanceof SingleConnectionInterface ? $node : $this->create($node));
+            $connection->add($node instanceof Predis_Connection_SingleConnectionInterface ? $node : $this->create($node));
         }
 
         return $connection;
@@ -142,7 +142,7 @@ class Predis_Connection_ConnectionFactory implements Predis_Connection_Connectio
      *
      * @param SingleConnectionInterface $connection Instance of a connection object.
      */
-    protected function prepareConnection(SingleConnectionInterface $connection)
+    protected function prepareConnection(Predis_Connection_SingleConnectionInterface $connection)
     {
         if (isset($this->profile)) {
             $parameters = $connection->getParameters();
@@ -164,7 +164,7 @@ class Predis_Connection_ConnectionFactory implements Predis_Connection_Connectio
      *
      * @param ServerProfileInterface $profile Server profile instance.
      */
-    public function setProfile(ServerProfileInterface $profile)
+    public function setProfile(Predis_Profile_ServerProfileInterface $profile)
     {
         $this->profile = $profile;
     }

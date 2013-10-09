@@ -11,7 +11,7 @@
 
 //namespace Predis\Profile;
 
-use Predis\Command\CommandInterface;
+//use Predis\Command\CommandInterface;
 
 /**
  * A server profile defines features and commands supported by certain

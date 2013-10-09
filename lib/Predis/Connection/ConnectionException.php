@@ -11,13 +11,13 @@
 
 //namespace Predis\Connection;
 
-use Predis\CommunicationException;
+//use Predis\CommunicationException;
 
 /**
  * Exception class that identifies connection-related errors.
  *
  * @author Daniele Alessandri <suppakilla@gmail.com>
  */
-class Predis_Connection_ConnectionException extends Predis_Connection_CommunicationException
+class Predis_Connection_ConnectionException extends Predis_CommunicationException
 {
 }

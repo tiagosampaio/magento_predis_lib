@@ -49,5 +49,5 @@ interface Predis_Connection_ConnectionFactoryInterface
      * @param array $parameters List of parameters for each connection object.
      * @return AggregatedConnectionInterface
      */
-    public function createAggregated(AggregatedConnectionInterface $cluster, Array $parameters);
+    public function createAggregated(Predis_Connection_AggregatedConnectionInterface $cluster, Array $parameters);
 }

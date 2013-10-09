@@ -136,7 +136,7 @@ abstract class Predis_Connection_AbstractConnection implements Predis_Connection
      */
     protected function onConnectionError($message, $code = null)
     {
-        CommunicationException::handle(new Predis_Connection_ConnectionException($this, "$message [{$this->parameters->scheme}://{$this->getIdentifier()}]", $code));
+        Predis_CommunicationException::handle(new Predis_Connection_ConnectionException($this, "$message [{$this->parameters->scheme}://{$this->getIdentifier()}]", $code));
     }
 
     /**
@@ -146,7 +146,7 @@ abstract class Predis_Connection_AbstractConnection implements Predis_Connection
      */
     protected function onProtocolError($message)
     {
-        CommunicationException::handle(new Predis_Protocol_ProtocolException($this, "$message [{$this->parameters->scheme}://{$this->getIdentifier()}]"));
+		Predis_CommunicationException::handle(new Predis_Protocol_ProtocolException($this, "$message [{$this->parameters->scheme}://{$this->getIdentifier()}]"));
     }
 
     /**
